@@ -17,7 +17,18 @@ function guess() {
     else {
       attempt.value += 1;
     }
-
+    //task 14, 15 and 16
+    if (getResults (input.value)) {
+        setMessage("You Win! :)");
+    }
+    else {
+      if (attempt.value === 10) {
+        setMessage("You Lose! :(");
+      }
+      else {
+        setMessage("Incorrect, try again!");
+      }
+    }
 }
 
 //implement new functions here
@@ -46,11 +57,13 @@ function validateInput(userInput) {
     return false;
   }
 }
-//task 12
+//task 12 and 13
 function getResults(userInput) {
   var result = ' <div class="row"><span class="col-md-6">' + userInput + '</span><div class="col-md-6">';
+  var correctGuess = 0;
   for (var j = 0; j < 4; j++) {
     if (userInput[j] === answer.value[j]) {
+      correctGuess += 1;
       result += '<span class="glyphicon glyphicon-ok"></span>';
     }
     else if (answer.value.includes(userInput[j])) {
@@ -62,4 +75,11 @@ function getResults(userInput) {
   }
   result = result + '</div></div>';
   document.getElementById('results').innerHTML += result;
+
+  if (correctGuess === 4) {
+    return true;
+  }
+  else {
+    return false;
+  }
 }
