@@ -18,11 +18,11 @@ function guess() {
       attempt.value += 1;
     }
     //task 14, 15 and 16
-    if (getResults (input.value)) {
+    if (getResults(input.value)) {
         setMessage("You Win! :)");
     }
     else {
-      if (attempt.value === 10) {
+      if (attempt.value >= 10) {
         setMessage("You Lose! :(");
       }
       else {
