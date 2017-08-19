@@ -47,11 +47,7 @@ function validateInput(userInput) {
   }
 }
 //task 12
-//   if the number isn't in the answer at all. Don't forget to close your divs!
-
-//Hint: You can create a variable to hold the initial div, then add each character's results to that variable in a for loop, then add the closing div tags after the loop. After which you can just set the results element's innerHTML to that variable.
-
-function getResult(userInput) {
+function getResults(userInput) {
   var result = ' <div class="row"><span class="col-md-6">' + userInput + '</span><div class="col-md-6">';
   for (var j = 0; j < 4; j++) {
     if (userInput[j] === answer.value[j]) {
