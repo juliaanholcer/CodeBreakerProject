@@ -15,20 +15,25 @@ function guess() {
       return false;
     }
     else {
-      attempt.value += 1;
+      attempt.value = Number(attempt.value) + 1;
     }
+
     //task 14, 15 and 16
     if (getResults(input.value)) {
         setMessage("You Win! :)");
+        showAnswer(true);
+        showReplay();
     }
     else {
       if (attempt.value >= 10) {
         setMessage("You Lose! :(");
+        showAnswer(false);
+        showReplay();
       }
       else {
         setMessage("Incorrect, try again.");
-      }
-    }
+      };
+    };
 }
 
 //implement new functions here
@@ -85,16 +90,17 @@ function getResults(userInput) {
 }
 //task 17
 function showAnswer(isWon) {
-  var codeDiv = document.getElementById("#code");
-  codeDiv.innerHTML = answer.value;
+  var codeP = document.getElementById("code");
+  codeP.innerHTML = answer.value;
   if (isWon) {
-    codeDiv.className += ' success';
+    codeP.className += ' success';
   }
   else {
-    codeDiv.className += ' failure';
+    codeP.className += ' failure';
   }
 }
 //task 18
 function showReplay() {
-
+  document.getElementById('guessing-div').style.display = 'none';
+  document.getElementById('replay-div').style.display = 'block';
 }
