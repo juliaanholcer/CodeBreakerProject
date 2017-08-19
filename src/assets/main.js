@@ -26,7 +26,7 @@ function guess() {
         setMessage("You Lose! :(");
       }
       else {
-        setMessage("Incorrect, try again!");
+        setMessage("Incorrect, try again.");
       }
     }
 }
@@ -82,4 +82,19 @@ function getResults(userInput) {
   else {
     return false;
   }
+}
+//task 17
+function showAnswer(isWon) {
+  var codeDiv = document.getElementById("#code");
+  codeDiv.innerHTML = answer.value;
+  if (isWon) {
+    codeDiv.className += ' success';
+  }
+  else {
+    codeDiv.className += ' failure';
+  }
+}
+//task 18
+function showReplay() {
+
 }
