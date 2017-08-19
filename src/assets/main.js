@@ -9,13 +9,13 @@ function guess() {
     if ((answer.value === '')||(attempt.value === '')) {
       setHiddenFields();
     }
-    
+
     //task 11
     if (!(validateInput(input.value))) {
       return false;
     }
     else {
-      attempt += 1;
+      attempt.value += 1;
     }
 
 }
@@ -45,4 +45,25 @@ function validateInput(userInput) {
     setMessage('Guesses must be exactly 4 characters long.');
     return false;
   }
+}
+//task 12
+//   if the number isn't in the answer at all. Don't forget to close your divs!
+
+//Hint: You can create a variable to hold the initial div, then add each character's results to that variable in a for loop, then add the closing div tags after the loop. After which you can just set the results element's innerHTML to that variable.
+
+function getResult(userInput) {
+  var result = ' <div class="row"><span class="col-md-6">' + userInput + '</span><div class="col-md-6">';
+  for (var j = 0; j < 4; j++) {
+    if (userInput[j] === answer.value[j]) {
+      result += '<span class="glyphicon glyphicon-ok"></span>';
+    }
+    else if (answer.value.includes(userInput[j])) {
+      result += '<span class="glyphicon glyphicon-transfer"></span>';
+    }
+    else {
+      result += '<span class="glyphicon glyphicon-remove"></span>';
+    }
+  }
+  result = result + '</div></div>';
+  document.getElementById('results').innerHTML += result;
 }
